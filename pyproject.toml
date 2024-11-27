@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "opencre-lib"
-version = "0.1.0"
+version = "0.1.1"
 description = "This library use the API, from OPENCRE to get compare between standards. Ex.: CWE ASVS SAMM"
 authors = ["Cristiano Henrique dos Santos <cristianovisk@gmail.com>"]
 license = "MIT"
