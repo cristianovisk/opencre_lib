@@ -23,9 +23,7 @@ class Map:
             "OWASP Web Security Testing Guide (WSTG)",
             "SAMM"
         ]
-        if self._valid_arguments():
-            self.compare = self._request_compare()
-        else:
+        if not self._valid_arguments():
             console.print(f"[red bold][-] [white]Arguments invalid: [blink red]{self.primary, self.secundary}")
             console.print(f"[yellow bold][*] [white]Arguments accepted: [yellow]{self.bases}")
             exit(1)
@@ -47,6 +45,9 @@ class Map:
     
     def return_compare(self):
         return self.compare
+    
+    def return_bases(self):
+        return self.bases
 
     def _request_compare(self):
         headers = {
@@ -77,6 +78,7 @@ class Map:
         return response.json()
     
     def generate_table(self):
+        self.compare = self._request_compare()
         self.table = []
         for item in self.compare.get('result').keys():
             for path in self.compare.get('result').get(item).get('paths').keys():
